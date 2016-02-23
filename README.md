@@ -12,7 +12,7 @@
 
 -
 
-### logo（圖片、時間，取代powered..by.transtep）
+### logo（圖片、時間，取代powered.by.transtep）
 
 ``` xml
 <preference name="position" value="865,1800,208,109"/>
