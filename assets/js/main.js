@@ -38,7 +38,7 @@
 				$('head').append(html.replace('$0', path));
 			} else {
 				var	d = $.Deferred();
-				$.getScript(path).always(function() { d.resolve() });
+				$.getScript(path).always(function() { d.resolve() }).fail(function() { console.error('error: '+path) });
 				return [d];
 			}
 		}
