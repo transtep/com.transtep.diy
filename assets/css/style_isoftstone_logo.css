@@ -1,0 +1,9 @@
+body {
+	height: 90vh;
+	background-image: url(../images/201602/logo.png);
+	background-repeat: no-repeat;
+	background-size: 95% 95%;
+	-moz-background-size: 95% 95%;
+	-webkit-background-size: 95% 95%;
+	-o-background-size: 95% 95%;
+}
