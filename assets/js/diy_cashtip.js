@@ -23,7 +23,7 @@ $('<div/>', {
 .appendTo('body');
 
 var digtalcoin = $('#digtalcoin'),
-	text = self.options.text || '{0}';
+	text = self.options.text || '已投入$ {0} 元，請選擇商品。';
 digtalcoin.html(text.format(1));
 
 if(self.vmc) {
