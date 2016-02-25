@@ -10,8 +10,8 @@ String.prototype.format = function() {
 	return content;
 };
 
-$("<div/>", {
-	"id": "digtalcoin"
+$('<div/>', {
+	'id': 'digtalcoin'
 }).css($.extend(true, {
 	"position": "relative",
 	"left": 0,
@@ -20,11 +20,11 @@ $("<div/>", {
 	"text-shadow": "black -1px 0px, black 0px 1px, black 1px 0px, black 0px -1px",
 	"font-size": "128px"
 }, typeof self.options.css == 'object' ? self.options.css : {}))
-.html(pre+"400"+suf)
-.appendTo("body");
+.appendTo('body');
 
-var digtalcoin = $("#digtalcoin"),
+var digtalcoin = $('#digtalcoin'),
 	text = self.options.text || '{0}';
+digtalcoin.html(text.format(1));
 
 if(self.vmc) {
 	self.vmc.on("onMoneyCatch", function(cash) {
