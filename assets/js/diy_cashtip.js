@@ -1,8 +1,14 @@
 ;(function($, self) {
 "use strict";
 
-var	pre = self.options.pre : '',
-	suf = self.options.suf : '';
+String.prototype.format = function() {
+	var  i = 0,
+		content = this;
+	for (; i < arguments.length; i++) {
+		content = content.replace('{' + i + '}', arguments[i]);
+	}
+	return content;
+};
 
 $("<div/>", {
 	"id": "digtalcoin"
@@ -17,11 +23,12 @@ $("<div/>", {
 .html(pre+"400"+suf)
 .appendTo("body");
 
-var digtalcoin = $("#digtalcoin");
+var digtalcoin = $("#digtalcoin"),
+	text = self.options.text || '{0}';
 
 if(self.vmc) {
 	self.vmc.on("onMoneyCatch", function(cash) {
-		digtalcoin.html(pre+parseFloat(cash)+suf);
+		digtalcoin.html(text.format(parseFloat(cash)));
 		if(cash) {
 			self.show();
 		} else {
@@ -31,3 +38,4 @@ if(self.vmc) {
 }
 
 })(jQuery, window);
+
