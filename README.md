@@ -27,8 +27,7 @@
 
 |parameter|type|default|description|
 |---------|----|-------|-----------|
-|diy_pre|string |已投入$|顯示在投入金額的前面|
-|diy_suf|string |元，請選擇商品。|顯示在投入金額的後面|
+|diy_text|string |已投入$ {0} 元，請選擇商品。|顯示投入金額，{0} 為金額|
 |diy_css|string ||文字的css|
 
 ``` xml
