@@ -49,7 +49,7 @@
 
 	extensions(options.script, false, function() {	//js 採用延遲方法
 		$(function() {	//所有js文件載入完成後才准許執行 plugin 主要功能
-			init();
+			self.hook('init');
 		});
 	})
 	extensions(options.style, '<link rel="stylesheet" href="$0">');
