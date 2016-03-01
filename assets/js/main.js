@@ -24,32 +24,34 @@
 		} catch( e ) {console.error('ivm-0.0.29 以上才支援 getPreference({}) 用法')}
 	}
 
-	//加載js / css
-	var extensions = function(path, html) {
+	/* 按照檔案順序加載js *//* 加載 css */
+	var extensions = function(path, html, callback) {
+		var defer;
 		if($.isArray(path)) {
-			var arr = [],
-					i = 0;
-			for(; i < path.length;) {
-				arr.push((extensions(path[i++], html))[0]);
-			}
-			return arr;
+			extensions(path.shift(), html, function() {	//LIFO, 可處理多層次數組
+				if(path.length) {
+					extensions(path, html, callback);
+				} else {	//全部加載完才執行 callback
+					callback && callback();
+				}
+			});
+			return false;
 		} else if(typeof path == 'string' && path.length) {
-			if(!!html) {
+			if(html) {
 				$('head').append(html.replace('$0', path));
-			} else {
-				var	d = $.Deferred();
-				$.getScript(path).always(function() { d.resolve() }).fail(function() { console.error('error: '+path) });
-				return [d];
+			} else {	//js 有 defer，當前加載完才能加載下一個
+				defer = $.Deferred();
+				$.getScript(path).always(function() { defer.resolve() }).fail(function() { console.error('error: '+path) });
 			}
 		}
+		callback && $.when(defer).then(callback);
 	}
 
-	$.when.apply($, extensions(options.script))	//js 採用延遲方法
-	.then(function() {	//所有js文件載入完成後觸發 self.hook_init
-		$(function() {
-			self.hook('init');
+	extensions(options.script, false, function() {	//js 採用延遲方法
+		$(function() {	//所有js文件載入完成後才准許執行 plugin 主要功能
+			init();
 		});
-	});
+	})
 	extensions(options.style, '<link rel="stylesheet" href="$0">');
 
 	self.hook = function(name) {
