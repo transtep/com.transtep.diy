@@ -44,6 +44,8 @@
 
 ### exchange（軟通客制APP掃碼兌換）
 
+需在 com.transtep.controller/config.xml 中 preference 的 interface 和 depends 添加這個 plugins 的名稱
+
 ``` xml
 <preference name="position" value="914,578,166,59" /><!-- ifarme 位置 大小 -->
 <preference name="z-index" value="1" /><!-- ifarme 先後順序 -->
