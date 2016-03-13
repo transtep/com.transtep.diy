@@ -41,3 +41,10 @@
 <preference name="diy_script" value="./js/diy_cashtip.js"/><!-- 加載的 js 路徑 -->
 <feature name="vmc" value="feature.transtep.vmc"/>
 ```
+
+### exchange（軟通客制APP掃碼兌換）
+
+``` xml
+<preference name="position" value="914,578,166,59" /><!-- ifarme 位置 大小 -->
+<preference name="z-index" value="1" /><!-- ifarme 先後順序 -->
+```
