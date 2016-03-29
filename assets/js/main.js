@@ -53,14 +53,13 @@
 		});
 	})
 	extensions(options.style, '<link rel="stylesheet" href="$0">');
-
-	self.hook = function(name) {
-		var args = Array.prototype.slice.call(arguments);
-		name = 'hook_' + name;
-		return typeof self[name] == 'function' && self[name].apply(self, args.splice(1));
-	}
 })(jQuery, window);
 
+function hook(name) {
+	var args = Array.prototype.slice.call(arguments);
+	name = 'hook_' + name;
+	return typeof self[name] == 'function' && self[name].apply(self, args.splice(1));
+}
 /* 防止被拖曳 */
 document.ondragstart = function() {
 	return false;
