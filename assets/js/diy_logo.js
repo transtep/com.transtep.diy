@@ -1,3 +1,18 @@
+/*
+--------------------------------
+	顯示LOGO
+--------------------------------
+2016 / 02 / 22
+-- -- -- -- -- -- -- -- -- -- --
+config.xml
+--
+<preference name="position" value="865,1800,208,109"/>
+<preference name="z-index" value="1001" />
+<preference name="diy_style" value="./css/style_logo.css"/>
+<preference name="diy_script" value="./js/diy_logo.js"/>
+--------------------------------
+ */
+
 var Timeer = function() {
 	var	that = this;
 	that.elem = document.getElementById('time');

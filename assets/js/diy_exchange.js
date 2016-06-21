@@ -1,3 +1,18 @@
+/*
+--------------------------------
+	顯示软通兑换
+--------------------------------
+2016 / 03 / 13
+-- -- -- -- -- -- -- -- -- -- --
+config.xml
+--
+<preference name="position" value="914,578,166,59" /><!-- ifarme 位置 大小 -->
+<preference name="z-index" value="1" /><!-- ifarme 先後順序 -->
+<preference name="diy_style" value="./css/style_exchange.css"/><!-- 加載的 css 路徑 -->
+<preference name="diy_script" value="./js/diy_exchange.js"/><!-- 加載的 js 路徑 -->
+--------------------------------
+ */
+
 ;(function($, self) {
 "use strict";
 
